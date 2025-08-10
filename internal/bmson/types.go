@@ -21,17 +21,17 @@ type Info struct {
 	Artist        string   `json:"artist"`
 	SubArtists    []string `json:"subartists"`
 	Genre         string   `json:"genre"`
-	ModeHint      string   `json:"mode_hint"`       // レイアウトのヒント (例: "beat-7k")
-	ChartName     string   `json:"chart_name"`      // チャート名 (例: "HYPER")
-	Level         int      `json:"level"`           // 難易度レベル
-	InitBPM       float64  `json:"init_bpm"`        // 初期BPM
-	JudgeRank     float64  `json:"judge_rank"`      // 判定の厳しさ
-	Total         float64  `json:"total"`           // ゲージ増加量
-	BackImage     *string  `json:"back_image"`      // 背景画像ファイル名
-	EyecatchImage *string  `json:"eyecatch_image"`  // アイキャッチ画像ファイル名
-	BannerImage   *string  `json:"banner_image"`    // バナー画像ファイル名
-	PreviewMusic  *string  `json:"preview_music"`   // プレビュー音楽ファイル名
-	Resolution    int      `json:"resolution"`      // 1拍あたりのパルス数
+	ModeHint      string   `json:"mode_hint"`      // レイアウトのヒント (例: "beat-7k")
+	ChartName     string   `json:"chart_name"`     // チャート名 (例: "HYPER")
+	Level         int      `json:"level"`          // 難易度レベル
+	InitBPM       float64  `json:"init_bpm"`       // 初期BPM
+	JudgeRank     float64  `json:"judge_rank"`     // 判定の厳しさ
+	Total         float64  `json:"total"`          // ゲージ増加量
+	BackImage     *string  `json:"back_image"`     // 背景画像ファイル名
+	EyecatchImage *string  `json:"eyecatch_image"` // アイキャッチ画像ファイル名
+	BannerImage   *string  `json:"banner_image"`   // バナー画像ファイル名
+	PreviewMusic  *string  `json:"preview_music"`  // プレビュー音楽ファイル名
+	Resolution    int      `json:"resolution"`     // 1拍あたりのパルス数
 }
 
 // BarLine は小節線の位置を表します。
@@ -87,7 +87,7 @@ type BGAHeader struct {
 
 // BGAEvent はBGA表示イベントを表します。
 type BGAEvent struct {
-	Y  int `json:"y"` // パルス位置
+	Y  int `json:"y"`  // パルス位置
 	ID int `json:"id"` // 表示する画像のID
 }
 

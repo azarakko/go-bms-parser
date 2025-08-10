@@ -4,8 +4,9 @@
 GOCMD=go
 GOBUILD=$(GOCMD) build
 GOTEST=$(GOCMD) test
-GOFMT=$(GOCMD) fmt
-GOLINT=golangci-lint
+GOFMT=gofmt
+GOBIN=$(shell go env GOPATH)/bin
+GOLINT=$(GOBIN)/golangci-lint
 
 # All source files
 GO_FILES := $(shell find . -name '*.go' -not -path "./vendor/*")
@@ -38,7 +39,7 @@ deps:
 .PHONY: fmt
 fmt:
 	@echo "Formatting go files..."
-	@$(GOFMT) -w $(GO_FILES)
+	@$(GOFMT) -w .
 
 # Lint
 .PHONY: lint
@@ -68,7 +69,7 @@ run: build
 .PHONY: lint-fmt
 lint-fmt:
 	@echo "Checking go files format..."
-	@test -z $(shell $(GOFMT) -l $(GO_FILES)) || (echo "Go files are not formatted. Please run 'make fmt'"; exit 1)
+	@test -z "$(shell $(GOFMT) -l .)" || (echo "Go files are not formatted. Please run 'make fmt'"; exit 1)
 
 # CI
 .PHONY: ci
